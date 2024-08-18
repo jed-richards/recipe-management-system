@@ -18,4 +18,3 @@ RMS is a monorepo made up of four core components.
 - [cli](./cli/README.md) - CLI for RMS
 - [common](./common/README.md) - Shared type definitions
 - [frontend](./frontend/README.md)
-- [frontend](./frontend/README.md)
