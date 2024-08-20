@@ -1,14 +1,20 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
+use serde::{Deserialize, Serialize};
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct Recipe {
+    pub id: u32,
+    pub name: String,
+    pub description: String,
+    pub ingredients: Vec<Ingredient>,
+    pub steps: Vec<String>,
+    pub preparation_time: Option<u32>,
+    pub cook_time: Option<u32>,
+    pub servings: Option<u32>,
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+#[derive(Debug, Deserialize, Serialize)]
+pub struct Ingredient {
+    pub name: String,
+    pub quantity: u32,
+    pub units: Option<String>,
 }
