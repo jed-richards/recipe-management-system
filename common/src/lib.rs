@@ -1,8 +1,9 @@
 use serde::{Deserialize, Serialize};
+use uuid::Uuid;
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Recipe {
-    pub id: u32,
+    pub id: Uuid,
     pub name: String,
     pub description: String,
     pub ingredients: Vec<Ingredient>,
