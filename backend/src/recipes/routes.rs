@@ -1,9 +1,10 @@
 use common::{Ingredient, Recipe};
 
 use actix_web::{delete, get, patch, post, web, HttpResponse, Responder};
+use uuid::Uuid;
 
 #[get("/{id}")]
-async fn get_recipe(path: web::Path<u32>) -> impl Responder {
+async fn get_recipe(path: web::Path<Uuid>) -> impl Responder {
     let id = path.into_inner();
 
     let recipe = Recipe {
@@ -39,7 +40,7 @@ async fn get_recipe(path: web::Path<u32>) -> impl Responder {
 async fn list_recipes() -> impl Responder {
     let recipes = vec![
         Recipe {
-            id: 1,
+            id: Uuid::new_v4(),
             name: "name".to_string(),
             description: "description".to_string(),
             ingredients: vec![
@@ -64,7 +65,7 @@ async fn list_recipes() -> impl Responder {
             servings: None,
         },
         Recipe {
-            id: 2,
+            id: Uuid::new_v4(),
             name: "name 2".to_string(),
             description: "description".to_string(),
             ingredients: vec![
@@ -96,7 +97,7 @@ async fn list_recipes() -> impl Responder {
 #[post("")]
 async fn create_recipe() -> impl Responder {
     let recipe = Recipe {
-        id: 1,
+        id: Uuid::new_v4(),
         name: "name".to_string(),
         description: "description".to_string(),
         ingredients: vec![
@@ -125,7 +126,7 @@ async fn create_recipe() -> impl Responder {
 }
 
 #[delete("/{id}")]
-async fn delete_recipe(path: web::Path<u32>) -> impl Responder {
+async fn delete_recipe(path: web::Path<Uuid>) -> impl Responder {
     let id = path.into_inner();
 
     let recipe = Recipe {
@@ -158,7 +159,7 @@ async fn delete_recipe(path: web::Path<u32>) -> impl Responder {
 }
 
 #[patch("/{id}")]
-async fn update_recipe(path: web::Path<u32>) -> impl Responder {
+async fn update_recipe(path: web::Path<Uuid>) -> impl Responder {
     let id = path.into_inner();
 
     let recipe = Recipe {

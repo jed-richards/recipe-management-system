@@ -313,6 +313,7 @@ dependencies = [
  "diesel",
  "dotenvy",
  "serde",
+ "uuid",
 ]
 
 [[package]]
