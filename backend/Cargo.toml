@@ -6,4 +6,6 @@ edition = "2021"
 [dependencies]
 actix-web = "4.9.0"
 common = { path = "../common" }
+diesel = { version = "2.2.3", features = ["postgres"] }
+dotenvy = { workspace = true }
 serde = { workspace = true }
